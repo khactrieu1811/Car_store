@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Mars_Store.Models.Entities.DANHMUC>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+<h4>
+    @Html.ActionLink("THÊM DANH MỤC MỚI", "Create")
+</h4>
+<br/>
+<table class="table table-bordered table-striped text-center" cellpadding="0" cellspacing="0">
+    <tr>
+        <th class="text-center">
+            MÃ DANH MỤC
+        </th>
+        <th class="text-center">
+            TÊN DANH MỤC
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_DM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tendanhmuc)
+        </td>
+        <td>
+            <span></span>
+            @Html.ActionLink("SỬA", "Edit", new { id=item.ID_DM }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("XÓA", "Delete", new { id=item.ID_DM }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
